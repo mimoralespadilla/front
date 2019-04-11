@@ -21,7 +21,6 @@ document.getElementById('asyncAll').addEventListener('click',allFetchAsync,false
 async function allFetchAsync(){
 let response = await fetch('http://localhost:8080/mascotas/');
 let data = await response.json();
-let text = await data.responseText;
 console.log(data);
 return data;
 }
@@ -271,11 +270,18 @@ function createMascotaByFetch(){
     let datos = FormData();
     datos.append(document.getElementById('bodyData').value);
     */
-   const data = document.getElementById('bodyData').value;
-    fetch('http://localhost:8080/mascotas/crear mascota/',{method: 'POST',
+   const nombreMascota = document.getElementById('nombre').value;
+   const especieMascota = document.getElementById('especieMascota').value;
+   const mezclaMascota = document.getElementById('mezclaMascota').value;
+   const edadMascota = document.getElementById('edad').value; 
+   fetch('http://localhost:8080/mascotas/crear mascota/',{method: 'POST',
      headers: { 'Content-Type': 'application/json'},
-        body: data,
-        //credentials:'include'
+        body: JSON.stringify({
+            name:nombreMascota,
+            especie:especieMascota,
+            mezcla:mezclaMascota,
+            edad:edadMascota
+        })
     })
     .then(function(response){
         console.log("REspuesta fetch");
@@ -291,7 +297,15 @@ function createMascotaByFetch(){
 }
 
 function createMascotaByHTX(){
-    const data = document.getElementById('bodyData').value;
+    const nombreMascota = document.getElementById('nombre').value;
+   const especieMascota = document.getElementById('especieMascota').value;
+   const mezclaMascota = document.getElementById('mezclaMascota').value;
+   const edadMascota = document.getElementById('edad').value; 
+   let data =JSON.stringify( { "nombre":nombreMascota,
+                "especie": especieMascota,
+                "mezcla":mezclaMascota,
+                "edad":edadMascota
+              });
     console.log("Antes de Inicializar el HTML Request");
     console.log("Mascota Borrada");
     request.open('POST','http://localhost:8080/mascotas/crear mascota/',true);
