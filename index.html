@@ -1,0 +1,55 @@
+<!DOCTYPE html >
+<html lang="es">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="script.js" type="text/javascript"></script>
+<head>
+	<title>Consultas back</title>
+</head>
+<body>
+<div>
+	<h2>Llama a todas las mascotas</h2>
+<form h>	
+<input type="button" name="callAll" value="allFetch" id="callAllFetch">
+<input type="button" name="callAll" value="allJson" id="callAllJson">
+<input type="button" name="callAll" value="allHTX" id="callAllHtx">
+<input type= "button"value="asyncAll" id="asyncAll">
+</div>
+<div id="resultado"></div>
+</form>
+<h2>Buscar Mascotas por ID</h2>
+<form>
+	<input type="text" name="callById" id="callId">
+	<input type="button" value="callByIdFetch" id="callByIdFetch">
+	<input type="button" value="callByIdHTX" id="callByIdHt">
+<div id="respuestaId"></div>
+</form>
+<h2>Buscar Mascotas por nombre</h2>
+<form>
+	<input type="text" name="callByName" id="callName">
+	<input type="button" value="callNameByFetch" id="callNameByFetch">
+	<input type="button" value="callNameByHtX" id="callNameByHtX" >
+<div id="resultadoNombre"></div>
+</form>
+<h2>Buscar Mascota por especie y mezcla</h2>
+<form>
+	<input type="text" name="a" id="especie">
+	<input type="text" name="mezcla" id="mezcla">
+	<input type="button" name="callEspecie" value="callEspcieyMezclaByFetch" id="callEyMByFetch">
+	<input type="button" name="callEspecie" value="callEspcieyMezclaByHTX" id="callEyMByHTX">
+	<div id="resultadoEspecieMezcla"></div>
+</form>
+<h2>Borrar Mascotas</h2>
+<form>
+	<input type="text" name="callById" id="id">
+	<input type="button" value="deleteByFetch" id="deleteByFetch">
+	<input type="button" value="deleteByHTX" id="deleteByHt">
+</form>
+<h2>Crear Mascota</h2>
+<form action="http://www.google.es">
+	<textarea id="bodyData"></textarea>
+	<input type="button" value="createByFetch" id="createByFetch">
+	<input type="button" value="createByHTX" id="createByHtx">
+</form>
+</body>
+</html>
